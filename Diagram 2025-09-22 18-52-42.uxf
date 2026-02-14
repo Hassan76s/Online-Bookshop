@@ -1,0 +1,192 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>72</x><y>624</y><w>126</w><h>78</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Category
+--
+&lt;&lt;PK&gt;&gt;  id_category
+Category_name
+description</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>342</y><w>126</w><h>96</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Author
+--
+&lt;&lt;PK&gt;&gt;  id_author
+first_name
+last_name
+date_birth
+date_death
+remark
+&lt;&lt;FK&gt;&gt; id_country </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>66</x><y>204</y><w>126</w><h>60</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+country
+--
+&lt;&lt;PK&gt;&gt; id_country
+name
+code
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>492</y><w>120</w><h>84</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Publisher
+--
+&lt;&lt;PK&gt;&gt;  id_publisher
+publisher_name
+founded 
+webseite
+remark
+&lt;&lt;FK&gt;&gt; id_country
+ </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>372</x><y>198</y><w>126</w><h>84</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Adress
+--
+&lt;&lt;PK&gt;&gt; countryid_adress
+Adress1
+Adress2
+city
+zip
+&lt;&lt;FK&gt;&gt; id_country</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>372</x><y>354</y><w>126</w><h>156</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Book
+--
+&lt;&lt;PK&gt;&gt;  id_book
+title
+isbn
+edition
+published
+info
+image
+is_in_stock
+price
+amount
+last_changed
+&lt;&lt;FK&gt;&gt;  id_category
+&lt;&lt;FK&gt;&gt;  id_publisher
+&lt;&lt;FK&gt;&gt;  id_language
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>606</y><w>126</w><h>78</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+StockHistory
+--
+&lt;&lt;PK&gt;&gt; id_stock_history
+amount
+price
+date_changed
+&lt;&lt;FK&gt;&gt; id_stock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>612</y><w>126</w><h>54</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Language
+--
+&lt;&lt;PK&gt;&gt; id_language
+name
+code</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>618</x><y>360</y><w>126</w><h>90</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Order
+--
+&lt;&lt;PK&gt;&gt; id_order
+account_name
+date_order
+shipping_address
+last_changed
+&lt;&lt;FK&gt;&gt; id_account
+&lt;&lt;FK&gt;&gt; id_order_status
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>606</x><y>480</y><w>126</w><h>66</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+OrderDetails
+--
+&lt;&lt;PK&gt;&gt; id_order_details
+item_count
+&lt;&lt;FK&gt;&gt; id_order
+&lt;&lt;FK&gt;&gt; id_book</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>612</x><y>606</y><w>126</w><h>84</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Stock
+--
+&lt;&lt;PK&gt;&gt; id_stock
+amount
+price
+date_price
+last_changed
+&lt;&lt;FK&gt;&gt; id_book
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>618</x><y>192</y><w>126</w><h>144</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Account
+--
+&lt;&lt;PK&gt;&gt;  id_account
+account_name
+date_created
+first_name
+last_name
+date_birth
+email {SK}
+password_hash
+phone
+remark
+&lt;&lt;FK&gt;&gt; id_type 
+&lt;&lt;FK&gt;&gt; id_role
+&lt;&lt;FK&gt;&gt; id_address</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>192</y><w>126</w><h>48</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+AccountType
+--
+&lt;&lt;PK&gt;&gt; id_type
+type_name</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>252</y><w>126</w><h>48</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+AccountRole
+--
+&lt;&lt;PK&gt;&gt; id_role
+role_name</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>486</y><w>126</w><h>72</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+OrderHistory
+--
+&lt;&lt;PK&gt;&gt; id_order_history
+date_order
+shipping_adress
+last_changed
+&lt;&lt;FK&gt;&gt; id_order</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>414</y><w>126</w><h>54</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+OrderStatus
+--
+&lt;&lt;PK&gt;&gt; id_order_status
+status_code
+description</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>222</y><w>198</w><h>30</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;20;310;20</additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>360</y><w>72</w><h>30</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>480</y><w>198</w><h>30</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;30;310;20</additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>504</y><w>18</w><h>120</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>504</y><w>192</w><h>132</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;200;300;10</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>222</y><w>84</w><h>324</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>110;10;10;10;10;520;120;520</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>204</y><w>138</w><h>30</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;20;210;20</additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>330</y><w>18</w><h>42</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>696</x><y>330</y><w>18</w><h>42</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>480</y><w>126</w><h>24</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>504</y><w>132</w><h>114</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;10;200;170</additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>444</y><w>18</w><h>48</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>426</y><w>102</w><h>72</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;10;150;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>324</y><w>126</w><h>78</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Message
+--
+&lt;&lt;PK&gt;&gt; id_message
+timestamp_message
+message_content
+&lt;&lt;FK&gt;&gt; id_order
+&lt;&lt;FK&gt;&gt; id_account
+&lt;&lt;FK&gt;&gt;  id_message</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>360</y><w>102</w><h>24</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>408</y><w>102</w><h>24</h></coordinates><panel_attributes></panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>282</y><w>102</w><h>72</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;80;100;150;100</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>270</y><w>102</w><h>24</h></coordinates><panel_attributes></panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>216</y><w>102</w><h>24</h></coordinates><panel_attributes></panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>732</x><y>648</y><w>114</w><h>30</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>318</y><w>90</w><h>78</h></coordinates><panel_attributes>&lt;&lt;table&gt;&gt;
+Author_has_Book
+--
+&lt;&lt;PK&gt;&gt; id_author_has_book
+id_author{PFK} 
+id_book{PFK}
+ </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>348</y><w>60</w><h>30</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>Relation</id><coordinates><x>948</x><y>348</y><w>72</w><h>60</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;100;10;100;80;10;80</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1026</x><y>474</y><w>84</w><h>90</h></coordinates><panel_attributes>
+bg=yellow
+Order status:
+-new
+-cancelled
+-in progress
+-payed
+-shipped
+-delivered
+-finished</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1104</x><y>354</y><w>96</w><h>72</h></coordinates><panel_attributes>
+bg=yellow
+use the so called
+--
+Closure Table
+--
+to stores / administrate
+the hierarchies
+between the messages</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1026</x><y>192</y><w>84</w><h>48</h></coordinates><panel_attributes>
+bg=yellow
+account types:
+employee
+customer</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>948</x><y>450</y><w>90</w><h>54</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;130;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1002</x><y>378</y><w>114</w><h>18</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1026</x><y>264</y><w>84</w><h>54</h></coordinates><panel_attributes>
+bg=yellow
+account roles: 
+admin
+employee
+customer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>516</x><y>108</y><w>120</w><h>30</h></coordinates><panel_attributes>
+bg=yellow
+only if account type = customer</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>948</x><y>216</y><w>90</w><h>18</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>948</x><y>282</y><w>90</w><h>18</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>90</x><y>0</y><w>108</w><h>90</h></coordinates><panel_attributes>
+bg=yellow
+Legend
+--
+PK: Primary key
+SK: Secondary key
+FK: Foreign key
+PFK:  Primary Foreign key 
+NN: Not Null
+AI: AUTO_INCREMENT
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>132</y><w>18</w><h>84</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element></diagram>
